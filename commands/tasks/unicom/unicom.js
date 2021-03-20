@@ -145,12 +145,12 @@ var start = async (params) => {
   }, taskOption)*/
 
   // 首页-签到有礼-免费抽-拿666积分-豪礼大派送抽奖
-  await scheduler.regTask('jflottery', async (request) => {
+  /*await scheduler.regTask('jflottery', async (request) => {
     await require('./jflottery').timesDraw(request, options)
   }, taskOption)
 
   // 首页-签到有礼-免费抽-拿苹果iPad Pro(摇一摇)
-  /*await scheduler.regTask('dailyYYY', async (request) => {
+  await scheduler.regTask('dailyYYY', async (request) => {
     await require('./dailyYYY').doTask(request, options)
   }, taskOption)*/
 
