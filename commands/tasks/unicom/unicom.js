@@ -18,6 +18,11 @@ var start = async (params) => {
     init
   }
 
+   // 首页-签到有礼-免费领-浏览领积分
+  await scheduler.regTask('dailyLiuLan', async (request) => {
+    await require('./dailyTTliulan').doTask(request, options)
+  }, taskOption)
+  
   // 每日签到积分
   await scheduler.regTask('dailysignin', async (request) => {
     await require('./dailysignin').doTask(request, options)
