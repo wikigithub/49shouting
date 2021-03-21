@@ -1,12 +1,26 @@
+var crypto = require("crypto");
+var sign = (data) => {
+    let str = "integralofficial&";
+    let params = [];
+    data.forEach((v, i) => {
+        if (v) {
+            params.push("arguments" + (i + 1) + v);
+        }
+    });
+    return crypto
+        .createHash("md5")
+        .update(str + params.join("&"))
+        .digest("hex");
+};
 let params = {
-                arguments1: "AC20200521222721", // acid
-                arguments2: account.yhChannel, // yhChannel
-                arguments3: account.yhTaskId, // yhTaskId menuId
+                arguments1: "AC20200814162815", // acid
+                arguments2: "GGPD", // yhChannel
+                arguments3: "6c54032f662c4d2bb576872ed408232c", // yhTaskId menuId
                 arguments4: new Date().getTime(), // time
-                arguments6: "",
-                arguments7: "woyuedu",
-                arguments8: "a123456",
-                arguments9: "",
+                arguments6: "517050707",
+                arguments7: "517050707",
+                arguments8: "123456",
+                arguments9: "4640b530b3f7481bb5821c6871854ce5",
                 orderId: crypto
                     .createHash("md5")
                     .update(new Date().getTime() + "")
@@ -26,6 +40,7 @@ var dailyTTliulan = {
   doTask: async (axios, options) => {
     await require('./rewardVideo').doTask(axios, {
       ...options,
+      params,
       acid: 'AC20200814162815',
       taskId: '6c54032f662c4d2bb576872ed408232c',
       codeId: 517050707,
