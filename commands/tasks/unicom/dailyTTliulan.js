@@ -3,7 +3,7 @@ var dailyTTliulan = {
     await require('./rewardVideo').doTask(axios, {
       ...options,
       acid: 'AC20200814162815',
-      taskId: '8e3c9e037c9a5418b0d789aa0200208b',
+      taskId: '6c54032f662c4d2bb576872ed408232c',
       codeId: 945114571,
       reward_name: '手厅浏览有礼发积分'
     })
