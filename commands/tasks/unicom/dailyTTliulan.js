@@ -4,7 +4,7 @@ var dailyTTliulan = {
       ...options,
       acid: 'AC20200814162815',
       taskId: '8e3c9e037c9a5418b0d789aa0200208b',
-      codeId: 945535616,
+      codeId: 945114571,
       reward_name: '手厅浏览有礼发积分'
     })
   }
