@@ -416,8 +416,8 @@ var producGame = {
     },
     doGameIntegralTask: async (axios, options) => {
         let { games, jar } = await producGame.getTaskList(axios, options)
-        console.info(games);
-        console.info(typeof(games));
+        //console.info(games);
+        //console.info(typeof(games));
         games = games.filter(d => d.task === '5' && d.reachState === '0' && d.task_type === 'duration')
         console.info('剩余未完成game', games.length)
         let queue = new PQueue({ concurrency: 15 });
