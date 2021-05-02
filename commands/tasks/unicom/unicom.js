@@ -17,11 +17,15 @@ var start = async (params) => {
   let taskOption = {
     init
   }
-
-   // 首页-签到有礼-免费领-浏览领积分
-  await scheduler.regTask('dailyLiuLan', async (request) => {
-    await require('./dailyTTliulan').doTask(request, options)
+// 首页-积分查询-游戏任务
+  await scheduler.regTask('dailygameIntegral', async (request) => {
+    await require('./producGame').doGameIntegralTask(request, options)
   }, taskOption)
+  
+   // 首页-签到有礼-免费领-浏览领积分
+  /*await scheduler.regTask('dailyLiuLan', async (request) => {
+    await require('./dailyTTliulan').doTask(request, options)
+  }, taskOption)*/
   
   // 每日签到积分
   await scheduler.regTask('dailysignin', async (request) => {
@@ -30,7 +34,7 @@ var start = async (params) => {
   }, taskOption)
 
   // 冬奥积分活动 20201231
-  await scheduler.regTask('winterTwo', async (request) => {
+ /* await scheduler.regTask('winterTwo', async (request) => {
     await require('./integral').winterTwoGetIntegral(request, options)
     await require('./integral').winterTwoStatus(request, options)
   }, taskOption)
@@ -115,14 +119,14 @@ var start = async (params) => {
   })*/
 
   // 首页-签到有礼-免费领-浏览领积分
-  await scheduler.regTask('dailyLiuLan', async (request) => {
+  /*await scheduler.regTask('dailyLiuLan', async (request) => {
     await require('./dailyTTliulan').doTask(request, options)
   }, taskOption)
 
   // 首页-签到有礼-免费领-领免费霸王餐
   await scheduler.regTask('dailyScratchCard', async (request) => {
     await require('./dailyScratchCard').doTask(request, options)
-  }, taskOption)
+  }, taskOption)*/
 
   // 首页-签到有礼-免费拿-看视频夺宝
   // 易出现本次操作需要进行验证，暂时注释
@@ -191,7 +195,7 @@ var start = async (params) => {
   // }, taskOption)*/
 
   // 首页-签到有礼-赚更多福利-看视频奖励5积分
-  await scheduler.regTask('dailyVideo', async (request) => {
+ /* await scheduler.regTask('dailyVideo', async (request) => {
     await require('./dailyVideo').doTask(request, options)
   }, taskOption)
 
@@ -212,7 +216,7 @@ var start = async (params) => {
   }, taskOption)*/
 
   // 首页-积分查询-游戏任务
-  await scheduler.regTask('dailygameIntegral', async (request) => {
+/*  await scheduler.regTask('dailygameIntegral', async (request) => {
     await require('./producGame').doGameIntegralTask(request, options)
   }, taskOption)
 
@@ -222,7 +226,7 @@ var start = async (params) => {
   }, {
     ...taskOption,
     startTime: 9 * 3600
-  })
+  })*/
 
   // await require('./integral').getflDetail(request, options)
   // await require('./integral').getTxDetail(request, options)
@@ -290,7 +294,7 @@ var start = async (params) => {
   // })
 
   // 首页-知识-阅读答题赢好礼
-  await scheduler.regTask('dailyBookAnswer', async (request) => {
+/*  await scheduler.regTask('dailyBookAnswer', async (request) => {
     await require('./dailyBookAnswer').doTask(request, options)
   }, taskOption)
 
@@ -307,7 +311,7 @@ var start = async (params) => {
   // 首页-积分商城-火热抢购-三只松鼠-看视频得积分
   await scheduler.regTask('dailyShopVideoIntegral', async (request) => {
     await require('./dailyShop').dovideoIntegralTask(request, options)
-  }, taskOption)
+  }, taskOption)*/
 
   // 服务-办理-套餐变更-赚积分
   /*await scheduler.regTask('dailyPackageIntegral', async (request) => {
@@ -315,9 +319,9 @@ var start = async (params) => {
   }, taskOption)*/
 
   // 服务-查询-电子发票-赚积分
-  await scheduler.regTask('dailyWisdomActivityIntegral', async (request) => {
+ /* await scheduler.regTask('dailyWisdomActivityIntegral', async (request) => {
     await require('./dailyOtherRewardVideo').doWisdomActivityIntegralTask(request, options)
-  }, taskOption)
+  }, taskOption)*/
 
   // 福利社-聚人气-看视频得积分
   // await scheduler.regTask('doWelfareActivityIntegralTask', async (request) => {
@@ -331,7 +335,7 @@ var start = async (params) => {
   }, taskOption)*/
 
   // 冬奥专区-赢冬奥纪念品-玩游戏抽奖
-  await scheduler.regTask('olympicgame', async (request) => {
+  /*await scheduler.regTask('olympicgame', async (request) => {
     await require('./olympicgame').doTask(request, options)
   }, taskOption)
 
@@ -356,7 +360,7 @@ var start = async (params) => {
   // 积分商城-疯踩小橙（沃耀联通小游戏）
   await scheduler.regTask('woyaoliantong', async (request) => {
     await require('./woyaoliantong').doTask(request, options)
-  }, taskOption)
+  }, taskOption)*/
 
   // 超级星期五-元宵喜乐会
   // 活动下线
@@ -365,7 +369,7 @@ var start = async (params) => {
   // }, taskOption)
 
   // 话费购签到
-  await scheduler.regTask('hfgo', async (request) => {
+  /*await scheduler.regTask('hfgo', async (request) => {
     await require('./hfgo').doTask(request, options)
   }, taskOption)
 
@@ -375,17 +379,17 @@ var start = async (params) => {
   }, {
     ...taskOption,
     startTime: 13 * 3600,
-  })
+  })*/
 
   // 清理领取某些未知方式的积分
   // 该处理可能会导致某些活动任务机会不足导致错误，所以执行时间要迟
-  await scheduler.regTask('dailyOtherRewardVideo', async (request) => {
+ /* await scheduler.regTask('dailyOtherRewardVideo', async (request) => {
     await require('./dailyOtherRewardVideo').cleanRewardVideo(request, options)
   }, {
     ...taskOption,
     startTime: 21.5 * 3600,
     ignoreRelay: true
-  })
+  })*/
 
   // 每日0点自动兑换流量
   /*await scheduler.regTask('exchangeDFlow', async (request) => {
