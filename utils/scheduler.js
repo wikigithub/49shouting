@@ -114,7 +114,7 @@ let scheduler = {
         } else {
             let taskJson = fs.readFileSync(scheduler.taskFile).toString('utf-8')
             taskJson = JSON.parse(taskJson)
-            if (taskJson.today !== today) {
+            if (1/*taskJson.today !== today*/) {
                 console.info('日期已变更，重新生成任务配置')
                 let queues = await scheduler.buildQueues(Object.keys(tasks), [])
                 fs.writeFileSync(scheduler.taskFile, JSON.stringify({
